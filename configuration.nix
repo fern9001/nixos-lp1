@@ -62,19 +62,21 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "caps:swapescape";
   services.xserver.libinput.enable = true;
-  services.xserver.displayManager.defaultSession = "none+xmonad";
-  services.xserver.windowManager.xmonad = {
-    config = builtins.readFile ./xmonad/xmonad.hs;
-    enable = true;
-    enableContribAndExtras = true;
-    extraPackages = hpkgs: [
-      hpkgs.xmonad-contrib
-      hpkgs.xmonad-extras 
-      hpkgs.xmonad-wallpaper 
-      hpkgs.xmonad 
-      hpkgs.xmobar
-    ];
-  };
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.displayManager.defaultSession = "none+xmonad";
+  # services.xserver.windowManager.xmonad = {
+  #   config = builtins.readFile ./xmonad/xmonad.hs;
+  #   enable = true;
+  #   enableContribAndExtras = true;
+  #   extraPackages = hpkgs: [
+  #     hpkgs.xmonad-contrib
+  #     hpkgs.xmonad-extras 
+  #     hpkgs.xmonad-wallpaper 
+  #     hpkgs.xmonad 
+  #     hpkgs.xmobar
+  #   ];
+  # };
 
   users.users.fern = {
     isNormalUser = true;
@@ -86,19 +88,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pulseeffects
-    openssl
-    sqlite
-    ranger
-    dmenu
-    fzf
     acpilight
+    dmenu
     firefox
+    fzf
     git
     htop
     neofetch
     networkmanagerapplet
+    nix-prefetch-github
+    nodejs-14_x
+    openssl
+    pulseeffects
+    ranger
     rtv
+    sqlite
     termite
     vim
     wget 
@@ -110,4 +114,3 @@
   system.stateVersion = "20.09";
 
 }
-
