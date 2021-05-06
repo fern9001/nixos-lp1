@@ -2,14 +2,7 @@
 {
   nixpkgs.config.allowUnfree = true;
 
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./apps/vim/vim.nix
-      ./apps/termite/termite.nix
-      ./apps/tmux/tmux.nix
-      ./apps/zsh/zsh.nix
-    ];
+  imports = [ ./hardware-configuration.nix ] ++ builtins.map(x: ./apps + ("/" + x)) (builtins.attrNames (builtins.readDir ./apps)) ;
 
   boot.kernelPackages = pkgs.linuxPackages_5_11;
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +14,7 @@
     };
   };
 
-  networking.hostName = "LP1"; 
+  networking.hostName = "LP1";
 
   time.timeZone = "Australia/Brisbane";
 
@@ -71,9 +64,9 @@
   #   enableContribAndExtras = true;
   #   extraPackages = hpkgs: [
   #     hpkgs.xmonad-contrib
-  #     hpkgs.xmonad-extras 
-  #     hpkgs.xmonad-wallpaper 
-  #     hpkgs.xmonad 
+  #     hpkgs.xmonad-extras
+  #     hpkgs.xmonad-wallpaper
+  #     hpkgs.xmonad
   #     hpkgs.xmobar
   #   ];
   # };
@@ -88,6 +81,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    scim
     acpilight
     dmenu
     firefox
@@ -99,16 +93,17 @@
     nix-prefetch-github
     nodejs-14_x
     openssl
-    pulseeffects
+    pulseeffects-legacy
     ranger
     rtv
     sqlite
     termite
     vim
-    wget 
+    wget
     which
     xmobar
     xorg.xbacklight
+    xsel
   ];
 
   system.stateVersion = "20.09";

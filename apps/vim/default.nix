@@ -9,18 +9,21 @@ let myVim = vim_configurable.customize {
     vam.knownPlugins = pkgs.vimPlugins // import ./vimPlugins.nix;
     vam.pluginDictionaries = [
       { names = [
-          "photon"
-          "horizon" 
           "ale"
+          "coc-nvim"
+          "horizon" 
           "indentLine"
           "nerdtree"
-          "vim-one"
-          "vim-surround"
-          "vim-commentary"
-          "vim-nix"
+          "nerdtree-git-plugin"
+          "photon"
           "vim-airline"
           "vim-airline-themes"
+          "vim-commentary"
+          "vim-nerdtree-syntax-highlight"
+          "vim-nix"
+          "vim-one"
           "vim-signify"
+          "vim-surround"
           "vim-tmux"
         ];}
       ]; 
