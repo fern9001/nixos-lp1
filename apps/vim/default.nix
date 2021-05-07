@@ -1,6 +1,6 @@
 { pkgs, ...}:
 
-with pkgs; 
+with pkgs;
 
 let myVim = vim_configurable.customize {
   name = "vim";
@@ -11,7 +11,7 @@ let myVim = vim_configurable.customize {
       { names = [
           "ale"
           "coc-nvim"
-          "horizon" 
+          "horizon"
           "indentLine"
           "nerdtree"
           "nerdtree-git-plugin"
@@ -19,6 +19,7 @@ let myVim = vim_configurable.customize {
           "vim-airline"
           "vim-airline-themes"
           "vim-commentary"
+          "vim-javascript"
           "vim-nerdtree-syntax-highlight"
           "vim-nix"
           "vim-one"
@@ -26,7 +27,7 @@ let myVim = vim_configurable.customize {
           "vim-surround"
           "vim-tmux"
         ];}
-      ]; 
+      ];
     };
   };
 in { environment.systemPackages = with pkgs; [ myVim ]; }
