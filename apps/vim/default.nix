@@ -30,4 +30,7 @@ let myVim = vim_configurable.customize {
       ];
     };
   };
-in { environment.systemPackages = with pkgs; [ myVim ]; }
+in {
+  environment.systemPackages = with pkgs; [ myVim ];
+  environment.variables = { EDITOR = "vim"; };
+}
