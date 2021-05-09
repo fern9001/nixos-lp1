@@ -18,11 +18,13 @@
 
   time.timeZone = "Australia/Brisbane";
 
+  networking.enableIPv6 = false;
   networking.useDHCP = false;
   networking.interfaces.enp0s20f0u1.useDHCP = true;
   networking.interfaces.enp3s0.useDHCP = true;
   networking.interfaces.wlp4s0.useDHCP = true;
   networking.networkmanager.enable = true;
+
 
   # FONTS
   fonts = {
@@ -81,6 +83,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    protonvpn-cli
     scim
     acpilight
     dmenu

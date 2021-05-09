@@ -2,7 +2,7 @@
 set hidden
 set nobackup
 set nowritebackup
-set cmdheight=2
+set cmdheight=1
 
 set updatetime=100
 set nocompatible
@@ -12,13 +12,16 @@ set encoding=utf8
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set cursorline
 set relativenumber
+set nu rnu
 
 "NERDTREE
 nmap <F6> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
+let g:NERDTreeStatusline = '%#NonText#'
 
 "AIRLINE
 "let g:airline#extensions#tabline#enabled = 1
@@ -27,15 +30,17 @@ let NERDTreeShowHidden=1
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 
+
 "STYLING
 colo one
 set background=dark
 set term=xterm-termite
 set t_Co=256
 set fillchars+=vert:\
-hi VertSplit guibg='#2c323c' guifg='#2c323c'
-hi NonText guibg='#2c323c' guifg='#2c323c'
-hi CursorLine guibg='#2c323c'
+hi VertSplit guibg='#282c34' guifg='#282c34'
+hi NonText guibg='#282c34' guifg='#282c34'
+hi CursorLine guibg='#3e4452'
+highlight Normal guibg='#2c323c'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

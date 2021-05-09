@@ -8,10 +8,10 @@ font = Monospace 8
 foreground      = #abb2bf
 foreground_bold = #abb2bf
 cursor          =
-background      = #2c323c 
+background      = #2c323c
 
-# black
-color0  = #282c34
+# black #282c34
+color0  = #2c323c
 color8  = #5c6370
 
 # red
