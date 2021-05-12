@@ -83,12 +83,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    protonvpn-cli
-    scim
     acpilight
     dmenu
     firefox
     fzf
+    geckodriver
     git
     htop
     neofetch
@@ -96,9 +95,11 @@
     nix-prefetch-github
     nodejs-14_x
     openssl
+    protonvpn-cli
     pulseeffects-legacy
     ranger
     rtv
+    scim
     sqlite
     termite
     vim

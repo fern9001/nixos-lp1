@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let 
+let
   plugins = with pkgs.tmuxPlugins; [
     yank
     onedark-theme
@@ -8,11 +8,11 @@ let
 
 in {
   environment.systemPackages = with pkgs; [ tmux ];
-  programs.tmux = {  
+  programs.tmux = {
     enable = true;
     customPaneNavigationAndResize = true;
     keyMode = "vi";
-    extraConfig = (builtins.readFile ./.tmux.conf) + "${builtins.concatStringsSep "" (map (x: "run-shell ${x.rtp}\n") plugins)}";
+    extraConfig = (builtins.readFile ./.tmux.conf) + "${builtins.concatStringsSep "" (map (plugin: "run-shell ${plugin.rtp}\n") plugins)}";
     baseIndex = 1;
     clock24 = true;
   };
