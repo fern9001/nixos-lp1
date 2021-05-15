@@ -90,6 +90,7 @@
     geckodriver
     git
     htop
+    libreoffice
     neofetch
     networkmanagerapplet
     nix-prefetch-github
