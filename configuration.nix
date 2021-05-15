@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
-{
+
+let customFunctions = import ./custom-functions.nix;
+
+in {
   nixpkgs.config.allowUnfree = true;
 
-  imports = [ ./hardware-configuration.nix ] ++ builtins.map(x: ./apps + ("/" + x)) (builtins.attrNames (builtins.readDir ./apps)) ;
+  imports = [ ./hardware-configuration.nix ] ++ customFunctions.listSubdirectories ./apps;
 
   boot.kernelPackages = pkgs.linuxPackages_5_11;
   boot.loader.systemd-boot.enable = true;
