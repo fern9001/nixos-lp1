@@ -16,6 +16,12 @@ set cursorline
 set relativenumber
 set nu rnu
 
+"KEYBINDS
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 "NERDTREE
 nmap <F6> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
@@ -37,10 +43,10 @@ set background=dark
 set term=xterm-termite
 set t_Co=256
 set fillchars+=vert:\
-hi VertSplit guibg='#282c34' guifg='#282c34'
-hi NonText guibg='#282c34' guifg='#282c34'
+hi VertSplit guibg='#2c323c' guifg='#2c323c'
+hi NonText guibg='#2c323c' guifg='#2c323c'
 hi CursorLine guibg='#3e4452'
-highlight Normal guibg='#2c323c'
+" highlight Normal guibg='#2c323c'
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"

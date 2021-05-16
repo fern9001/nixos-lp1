@@ -10,7 +10,7 @@
       # get list of attribute values (item type ie. file, directory)
       itemTypes = builtins.attrValues dirContents;
 
-      # generate list checking if item is a subdirectory otherwise null
+      # generate list checking if item is a subdirectory then returning its path, otherwise null
       dirList = builtins.genList (i: if (builtins.elemAt itemTypes i == "directory") then directoryPath + ("/" + (builtins.elemAt itemNames i )) else null ) (builtins.length itemTypes);
 
       # remove nulls from list

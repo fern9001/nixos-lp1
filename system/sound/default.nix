@@ -1,0 +1,4 @@
+{ config, ... }:
+{
+  sound.enable = true;
+}

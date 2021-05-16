@@ -1,12 +1,12 @@
-Config 
-  { font = "xft:Bitstream Vera Sans Mono:size=9:regular:antialias=true"
+Config
+  { font = "xft: Monoid:size=8:regular:antialias=true"
   , overrideRedirect = False
   , borderColor = "#333841"
-  , border = TopB
+  , border = BottomB
   , bgColor = "#2c323c"
   , fgColor = "#828997"
-  , position = BottomW L 100 
-  , commands = 
+  , position = TopW L 100
+  , commands =
     [ Run Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal","#98c379","--high","red","--low","lightblue"] 36000
     , Run Network "enp0s20f0u1" ["-L","0","-H","32","--normal","#98c379","--high","#e06c75"] 10
     , Run Cpu ["-L","3","-H","50","--normal","#98c379","--high","#e06c75"] 10
@@ -30,7 +30,7 @@ Config
         , "-i"	, "<fc=#ffffff,#006000>Charged</fc>"
       ] 50
     ]
-  , sepChar = "%" 
+  , sepChar = "%"
   , alignSep = "}{"
   , template = " <fc=#ff0000,#ffffff>%StdinReader%</fc> }{[ %enp0s20f0u1% ] | %cpu% | %memory% * %swap% | <fc=#d19a66>%date%</fc> | %uname% | %CYVR%  | %battery%"
   }
