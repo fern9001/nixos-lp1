@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     acpilight
+    bmon
     dmenu
     firefox
     fzf
@@ -16,12 +17,14 @@
     openssl
     protonvpn-cli
     pulseeffects-legacy
+    rakudo
     ranger
     rtv
     scim
     sqlite
     termite
     vim
+    wavemon
     wget
     which
     xmobar
