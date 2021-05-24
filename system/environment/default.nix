@@ -4,7 +4,7 @@
     acpilight
     bmon
     dmenu
-    firefox
+    feh
     fzf
     geckodriver
     git
@@ -16,7 +16,6 @@
     nodejs-14_x
     openssl
     protonvpn-cli
-    pulseeffects-legacy
     rakudo
     ranger
     rtv
@@ -30,5 +29,8 @@
     xmobar
     xorg.xbacklight
     xsel
+
+    firefox
+    pulseeffects-legacy
   ];
 }

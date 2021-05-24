@@ -1,35 +1,72 @@
+-- mono1 = "#abb2bf"
+-- mono2 = "#828997"
+-- mono3 = "#5c6370"
+-- mono4 = "#4b5263"
+-- cyan    = "#56b6c2"
+-- blue    = "#61afef"
+-- purple  = "#c678dd"
+-- green   = "#98c379"
+-- red1    = "#e06c75"
+-- red2    = "#be5046"
+-- orange1 = "#d19a66"
+-- orange2 = "#e5c07b"
+--
+-- syntax_bg     = "#282c34"
+-- syntax_gutter = "#636d83"
+-- syntax_cursor = "#2c323c"
+-- syntax_accent = "#528bff"
+--
+-- vertsplit    = "#181a1f"
+-- special_grey = "#3b4048"
+-- visual_grey  = "#3e4452"
+-- pmenu        = "#333841"
+
 Config
-  { font = "xft: Monoid:size=8:regular:antialias=true"
+  { font = "xft:Inconsolata Nerd Font:size=10:regular:antialias=true:hinting=true"
+  , lowerOnStart = True
   , overrideRedirect = False
   , borderColor = "#4b5263"
-  , border = TopB
+  , border = BottomB
   , bgColor = "#3e4452"
   , fgColor = "#828997"
   , position = BottomW L 100
   , commands =
     [ Run Network "enp0s20f0u1" ["-L","0","-H","32","--normal","#98c379","--high","#e06c75"] 10
-    , Run Cpu ["-L","3","-H","50","--normal","#98c379","--high","#e06c75"] 10
-    , Run Memory ["-t","Mem: <usedratio>%"] 10
+    , Run Cpu [ "--template" , " 龍 <total>%"
+              ,"-L","3"
+              ,"-H","50"
+              ,"--normal","#181a1f,#abb2bf"
+              ,"--high","#e06c75,#abb2bf"
+              ] 10
+    , Run Memory [ "--template" ," <usedratio>%"
+                 , "--Low"      , "20"        -- units: %
+                 , "--High"     , "90"        -- units: %
+                 , "--low"      , "#181a1f,#abb2bf"
+                 , "--normal"   , "#d19a66,#abb2bf"
+                 , "--high"     , "#e06c75,#abb2bf"
+                 ] 10
     , Run Swap [] 10
     , Run Com "uname" ["-s","-r"] "" 36000
-    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+    , Run Date "%a %b %_d %Y <fc=#4b5263,#282c34></fc> %H:%M:%S" "date" 10
     , Run StdinReader
-    , Run Battery [ "--template" , "Batt: <acstatus>"
-      , "--Low"      , "10"        -- units: %
-      , "--High"     , "60"        -- units: %
-      , "--low"      , "#e06c75"
-      , "--normal"   , "#d19a66"
-      , "--high"     , "#98c379"
-      , "--" -- battery specific options
-        -- discharging status
-        , "-o"	, "<left>% (<timeleft>)"
-        -- AC "on" status
-        , "-O"	, "<fc=,#dAA520>Charging</fc>"
-        -- charged status
-        , "-i"	, "<fc=#ffffff,#006000>Charged</fc>"
+    , Run Brightness ["-t", "<bar>"] 60
+    , Run Battery [ "--template" , "<acstatus>"
+                  , "--Low"      , "10"        -- units: %
+                  , "--High"     , "60"        -- units: %
+                  , "--low"      , "#e06c75"
+                  , "--normal"   , "#d19a66"
+                  , "--high"     , "#181a1f,#98c379"
+                  , "--" -- battery specific options
+                    , "--on-icon-pattern", "<left> "
+                    -- discharging status
+                    , "-o"	, "<fc=#98c379></fc>  <left> <fc=#e5c07b,#98c379></fc><fc=#e06c75,#e5c07b></fc>"
+                    -- AC "on" status
+                    , "-O"	, "<fc=#98c379></fc> ﮣ  <left> <fc=#e5c07b,#98c379></fc><fc=#e06c75,#e5c07b></fc>"
+                    -- charged status
+                    , "-i"	, "<fc=#98c379></fc><fc=#181a1f,#98c379> ﮣ  </fc><fc=#e5c07b,#98c379></fc><fc=#e06c75,#e5c07b></fc>"
       ] 50
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fc=#abb2bf,#4b5263> %StdinReader% </fc>}{[ %enp0s20f0u1% ] | %cpu% | %memory% * %swap% | <fc=#d19a66>%date%</fc> | %uname% | %battery%"
+  , template = "<fc=#4b5263,#61afef>  </fc><fc=#61afef></fc><fc=#3e4452,#4b5263> </fc><fc=#abb2bf,#4b5263>%StdinReader%</fc>}{%brightness% [ %enp0s20f0u1% ] |<fc=#abb2bf,#3e4452></fc><fc=#181a1f,#abb2bf>%cpu%  %memory% </fc><fc=#282c34,#abb2bf></fc><fc=#abb2bf,#282c34> %date% </fc><fc=#3e4452,#282c34></fc>%battery%"
   }
