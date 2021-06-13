@@ -49,12 +49,13 @@ Config
     , Run Com "uname" ["-s","-r"] "" 36000
     , Run Date "%a %b %_d %Y <fc=#4b5263,#282c34></fc> %H:%M:%S" "date" 10
     , Run StdinReader
+    , Run Com "/run/current-system/sw/bin/bash" ["-c", "date"] "myTest" 10
     , Run Brightness ["-t", "<bar>"] 60
     , Run Battery [ "--template" , "<acstatus>"
                   , "--Low"      , "10"        -- units: %
                   , "--High"     , "60"        -- units: %
-                  , "--low"      , "#e06c75"
-                  , "--normal"   , "#d19a66"
+                  , "--low"      , "#181a1f,#98c379"
+                  , "--normal"   , "#181a1f,#98c379"
                   , "--high"     , "#181a1f,#98c379"
                   , "--" -- battery specific options
                     , "--on-icon-pattern", "<left> "
@@ -68,5 +69,5 @@ Config
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template = "<fc=#4b5263,#61afef>  </fc><fc=#61afef></fc><fc=#3e4452,#4b5263> </fc><fc=#abb2bf,#4b5263>%StdinReader%</fc>}{%brightness% [ %enp0s20f0u1% ] |<fc=#abb2bf,#3e4452></fc><fc=#181a1f,#abb2bf>%cpu%  %memory% </fc><fc=#282c34,#abb2bf></fc><fc=#abb2bf,#282c34> %date% </fc><fc=#3e4452,#282c34></fc>%battery%"
+  , template = "<fc=#4b5263,#61afef>  </fc><fc=#61afef></fc><fc=#3e4452,#4b5263> </fc><fc=#abb2bf,#4b5263>%StdinReader%</fc>}{%Brightness% [ %enp0s20f0u1% ] |<fc=#abb2bf,#3e4452></fc><fc=#181a1f,#abb2bf>%cpu%  %memory% </fc><fc=#282c34,#abb2bf></fc><fc=#abb2bf,#282c34> %date% </fc><fc=#3e4452,#282c34></fc>%battery%"
   }

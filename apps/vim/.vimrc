@@ -1,7 +1,9 @@
 "GENERAL
 set hidden
-set nobackup
-set nowritebackup
+set confirm
+
+" set nobackup
+" set nowritebackup
 set cmdheight=1
 
 set updatetime=100
@@ -28,6 +30,12 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 let g:NERDTreeStatusline = '%#NonText#'
+let NERDTreeMinimalUI=1
+
+augroup nerdtreehidecwd
+	autocmd!
+	autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeHideCWD #^[</].*$# conceal
+augroup end
 
 "AIRLINE
 let g:airline#extensions#tabline#enabled = 1
@@ -36,6 +44,8 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 
+"BUFFERS
+:nnoremap <F5> :buffers<CR>:buffer<Space>
 
 "STYLING
 colo one

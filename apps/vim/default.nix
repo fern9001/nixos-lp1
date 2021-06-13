@@ -11,14 +11,17 @@ let myVim = vim_configurable.customize {
       { names = [
           "ale"
           "coc-nvim"
+          "emmet-vim"
           "horizon"
           "indentLine"
           "nerdtree"
           "nerdtree-git-plugin"
           "photon"
+          "typescript-vim"
           "vim-airline"
           "vim-airline-themes"
           "vim-commentary"
+          "vim-devicons"
           "vim-javascript"
           "vim-nerdtree-syntax-highlight"
           "vim-nix"
@@ -26,6 +29,7 @@ let myVim = vim_configurable.customize {
           "vim-signify"
           "vim-surround"
           "vim-tmux"
+          "vim-unimpaired"
         ];}
       ];
     };
