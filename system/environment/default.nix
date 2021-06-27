@@ -2,6 +2,9 @@
 {
   environment.etc."xdg/gtk-3.0".source = ./gtk-3.0;
   environment.systemPackages = with pkgs; [
+    google-chrome
+    vscode
+    nasm
     acpilight
     bmon
     deno

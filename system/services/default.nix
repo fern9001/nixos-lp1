@@ -15,7 +15,6 @@
       extraPackages = hpkgs: [
         hpkgs.xmonad-contrib
         hpkgs.xmonad-extras
-        hpkgs.xmonad-wallpaper
         hpkgs.xmonad
         hpkgs.xmobar
       ];

@@ -30,7 +30,7 @@ main = do
       , ppSep = xmobarColor mono3 mono4 " \xe0b1 "
       }
     , modMask = mod4Mask
-    , borderWidth = 1
+    , borderWidth = 0
     , normalBorderColor  = pmenu
     , focusedBorderColor = mono4 }
     `additionalKeys`
